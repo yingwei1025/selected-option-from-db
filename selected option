@@ -1,0 +1,22 @@
+<?php
+$result = $conn->query("SELECT * FROM person");
+
+if ($result->num_rows > 0) 
+{
+$row = $result->fetch_assoc();
+$currgender=$row['gender'];
+}
+?> 
+
+<html>
+<body>
+
+<label>Gender</label>
+<select id="gender" name="gender">
+<option value="" selected="selected">Select Gender ...</option>
+<option value="Male"<?php echo $currgender== 'Male'?'selected':'';?>>Male</option>
+<option value="Female"<?php echo $currgender== 'Female'?'selected':'';?>>Female</option>
+</select>
+
+</body>
+</html>
